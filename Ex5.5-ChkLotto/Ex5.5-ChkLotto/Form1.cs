@@ -12,6 +12,8 @@ namespace Ex5._5_ChkLotto
 {
     public partial class Form1 : Form
     {
+        LottoNumbers numbers;
+
         public Form1()
         {
             //InitializeComponent();
@@ -24,7 +26,8 @@ namespace Ex5._5_ChkLotto
             this.Text = "LOTTO";
 
             Point numbersLocation = new Point(20, 20);
-            LottoNumbers numbers = new LottoNumbers(numbersLocation);
+            numbers = new LottoNumbers(numbersLocation);
+
             numbers.CreateUI(this);
 
             Point btnLocation = new Point(numbers.Location.X, numbers.EndLocation.Y);
@@ -37,9 +40,16 @@ namespace Ex5._5_ChkLotto
             btnStart.Text = "Win!";
             btnStart.FlatStyle = FlatStyle.Flat;
             btnStart.TextAlign = ContentAlignment.MiddleCenter;
+            btnStart.Click += btnStart_Click;
 
             Controls.Add(btnStart);
 
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            Point winnerLocation = new Point(numbers.EndLocation.X, numbers.EndLocation.Y);
+            numbers.CreateWinnerUI(winnerLocation, this);
         }
     }
 }
