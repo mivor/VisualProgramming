@@ -70,6 +70,12 @@ namespace Ex5._5_ChkLotto
                 Label lblWinner = new Label();
                 lblWinner.Location = new Point(location.X - (i+1) * 50, location.Y);
                 lblWinner.Size = new Size(40, 40);
+                lblWinner.BackColor = Color.GreenYellow;
+
+                System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+                gp.AddEllipse(0, 0, lblWinner.Width, lblWinner.Height);
+                lblWinner.Region = new Region(gp);
+                //lblWinner.Invalidate();
 
                 lblWinner.Text = winners[i].ToString();
                 lblWinner.TextAlign = ContentAlignment.MiddleCenter;
