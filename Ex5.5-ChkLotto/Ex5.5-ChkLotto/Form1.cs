@@ -24,9 +24,7 @@ namespace Ex5._5_ChkLotto
             this.Text = "LOTTO";
 
             Point numbersLocation = new Point(20, 20);
-
             LottoNumbers numbers = new LottoNumbers(numbersLocation);
-
             numbers.CreateUI(this);
 
             Point btnLocation = new Point(numbers.Location.X, numbers.EndLocation.Y);
